@@ -31,7 +31,7 @@ const SearchScreen: React.FunctionComponent<IProps> = ({ navigation }) => {
       <ScrollView>
         <ResultsList
           results={filterResultsByPrice("€")}
-          title="Preiswert"
+          title="Sehr Preiswert"
           navigation={navigation}
         />
         <ResultsList
