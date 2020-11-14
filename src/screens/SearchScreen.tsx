@@ -10,7 +10,7 @@ interface IProps {
   navigation: any;
 }
 
-const SearchScreen: React.FunctionComponent<IProps> = ({ navigation }) => {
+const SearchScreen: React.FunctionComponent<IProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
@@ -32,17 +32,14 @@ const SearchScreen: React.FunctionComponent<IProps> = ({ navigation }) => {
         <ResultsList
           results={filterResultsByPrice("€")}
           title="Sehr Preiswert"
-          navigation={navigation}
         />
         <ResultsList
           results={filterResultsByPrice("€€")}
           title="Etwas teurer"
-          navigation={navigation}
         />
         <ResultsList
           results={filterResultsByPrice("€€€")}
           title="Luxus Preis"
-          navigation={navigation}
         />
       </ScrollView>
       {/* </View> */}

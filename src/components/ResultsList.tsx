@@ -6,6 +6,11 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+// injects navigation prop into this component
+// export needs to be wrapped with this function
+// export default withNavigation(ResultsList);
+import { withNavigation } from "react-navigation";
+
 import Restaurant from "../viewModel/RestaurantData";
 import ResultDetail from "./ResultDetail";
 
@@ -21,6 +26,8 @@ const ResultsList: React.FunctionComponent<IProps> = ({
   results,
   navigation,
 }) => {
+  if (!results.length) return null;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title} </Text>
@@ -33,7 +40,7 @@ const ResultsList: React.FunctionComponent<IProps> = ({
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("RestaurantDetails");
+                navigation.navigate("RestaurantDetails", { id: item.id });
               }}
             >
               <ResultDetail restaurant={item} />
@@ -57,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResultsList;
+export default withNavigation(ResultsList);

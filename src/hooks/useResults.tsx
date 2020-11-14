@@ -5,6 +5,8 @@ export default () => {
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // useEffect with an empty array as second parameter
+  // causes the function to be run only once
   useEffect(() => {
     searchApi("pizza");
   }, []);
